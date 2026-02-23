@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'development'
+            label 'development && pyhton'
         }
     }
     stages {
