@@ -1,29 +1,27 @@
 pipeline {
-   
-    agent{
+    agent {
         node {
-            label 'Development'
+            label 'development'
         }
     }
     stages {
         stage('Build') {
             steps {
-            
-                echo "Building ... in the node ${NODE_NAME}  and in the executor ${EXECUTOR_NUMBER}"
+                echo "Building in the node ${NODE_NAME} and in the executor ${EXECUTOR_NUMBER}"
                 sh 'uname -n'
             }
         }
         stage('Test') {
             steps {
-              echo "Testing ... in the node ${NODE_NAME}  and in the executor ${EXECUTOR_NUMBER}"
-              sh 'uname -n'
+                echo "Testing in the node ${NODE_NAME} and in the executor ${EXECUTOR_NUMBER}"
+                sh 'uname -n'
             }
         }
         stage('Deploy') {
             steps {
-             echo "Deploying ... in the node ${NODE_NAME}  and in the executor ${EXECUTOR_NUMBER}"  
-             sh 'uname -n'
-            }  
+                echo "Deploying in the node ${NODE_NAME} and in the executor ${EXECUTOR_NUMBER}"
+                sh 'uname -n'
+            }
         }
     }
     post {
