@@ -1,10 +1,9 @@
 pipeline {
-    agent none
+    agent {
+        label 'dev && java'
+    }
     stages {
         stage('Build') {
-            agent {
-                label 'dev && java'
-            }
             steps {
                 echo "Building in the node ${NODE_NAME} and in the executor ${EXECUTOR_NUMBER}"
                 sh 'uname -n'
