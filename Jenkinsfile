@@ -10,9 +10,6 @@ pipeline {
             }
         }
         stage('Test') {
-            agent {
-                label 'test && java'
-            }
             steps {
                 echo "Testing in the node ${NODE_NAME} and in the executor ${EXECUTOR_NUMBER}"
                 sh 'uname -n'
