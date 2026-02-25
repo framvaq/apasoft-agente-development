@@ -1,21 +1,28 @@
 pipeline {
-    agent {
-        label 'dev && python'
-    }
+    agent none
     stages {
         stage('Build') {
+            agent {
+                label 'dev && java'
+            }
             steps {
                 echo "Building in the node ${NODE_NAME} and in the executor ${EXECUTOR_NUMBER}"
                 sh 'uname -n'
             }
         }
         stage('Test') {
+            agent {
+                label 'test && java'
+            }
             steps {
                 echo "Testing in the node ${NODE_NAME} and in the executor ${EXECUTOR_NUMBER}"
                 sh 'uname -n'
             }
         }
         stage('Deploy') {
+            agent {
+                label 'pro && java'
+            }
             steps {
                 echo "Deploying in the node ${NODE_NAME} and in the executor ${EXECUTOR_NUMBER}"
                 sh 'uname -n'
